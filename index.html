@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+    <script type="text/javascript" src="elm.js"></script>
+    <style media="screen">
+        #map {
+            width: 200px;
+            height: 200px;
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <div id="elm"></div>
+
+    <div id="map"></div>
+
+    <script src="//maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript">
+        var div = document.getElementById('elm');
+        var mapDiv = document.getElementById('map');
+        var map = Elm.embed(Elm.Main, div);
+
+        map.ports.lat.subscribe(function(lat) {
+            console.log("received", lat);
+            var myLatlng = new google.maps.LatLng(lat, 5);
+            gmap.setCenter(myLatlng);
+        });
+
+        var myLatlng = new google.maps.LatLng(43, 4.5);
+        var mapOptions = {
+          zoom: 6,
+          center: myLatlng
+        };
+        var gmap = new google.maps.Map(mapDiv, mapOptions);
+    </script>
+</body>
+</html>
