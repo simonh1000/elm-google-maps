@@ -1,4 +1,4 @@
-# Elm with Google maps
+# Elm 0.15 with Google maps
 
 The quickDirty branch is written up [here](http://simonh1000.github.io/2015/10/elm-architecture-ports/)
 
